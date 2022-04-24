@@ -65,4 +65,13 @@ class ApplicationTest extends NsTest {
         Assertions.assertEquals(car.getMoveCount(), 0);
         Assertions.assertEquals(car.getStatus(), CarStatus.STOP);
     }
+
+    @Test
+    @DisplayName("입력_받은_값으로_차_생성")
+    void 입력_받은_값으로_차_생성() {
+        String input = "pobi,javajigi,woni";
+
+        Cars cars = Application.makeCars(input);
+        Assertions.assertEquals(cars.getSize(), 3);
+    }
 }
