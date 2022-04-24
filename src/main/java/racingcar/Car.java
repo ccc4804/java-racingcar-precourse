@@ -20,7 +20,7 @@ public class Car {
     public int getMoveCount() {
         return this.moveCount;
     }
-    
+
     public CarStatus getStatus() {
         return this.status;
     }
@@ -30,7 +30,15 @@ public class Car {
     }
 
     public void go() {
-        this.moveCount++;
-        this.status = CarStatus.GO;
+        this.setStatus(CarStatus.GO);
+    }
+
+    public void stop() {
+        this.setStatus(CarStatus.STOP);
+    }
+
+    private void setStatus(CarStatus status) {
+        this.status = status;
+        this.moveCount = this.moveCount + status.getMoveCount();
     }
 }

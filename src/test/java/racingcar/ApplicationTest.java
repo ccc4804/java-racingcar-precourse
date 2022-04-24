@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ApplicationTest extends NsTest {
@@ -42,6 +43,7 @@ class ApplicationTest extends NsTest {
 
 
     @Test
+    @DisplayName("전진_테스트")
     void 전진_테스트() {
         Car car = new Car("pobi");
         Assertions.assertEquals(car.getMoveCount(), 0);
@@ -50,5 +52,17 @@ class ApplicationTest extends NsTest {
         car.go();
         Assertions.assertEquals(car.getMoveCount(), 1);
         Assertions.assertEquals(car.getStatus(), CarStatus.GO);
+    }
+
+    @Test
+    @DisplayName("멈춤_테스트")
+    void 멈춤_테스트() {
+        Car car = new Car("pobi");
+        Assertions.assertEquals(car.getMoveCount(), 0);
+        Assertions.assertEquals(car.getStatus(), CarStatus.READY);
+
+        car.stop();
+        Assertions.assertEquals(car.getMoveCount(), 0);
+        Assertions.assertEquals(car.getStatus(), CarStatus.STOP);
     }
 }
