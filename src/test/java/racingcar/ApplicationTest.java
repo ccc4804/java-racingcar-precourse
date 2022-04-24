@@ -94,4 +94,11 @@ class ApplicationTest extends NsTest {
             Assertions.assertEquals(car.getMaxMoveCount(), 5);
         }
     }
+
+    @Test
+    @DisplayName("이름_중복_검증")
+    void 이름_중복_검증() {
+        String input = "pobi,javaj,pobi";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Application.makeCars(input));
+    }
 }
