@@ -81,4 +81,17 @@ class ApplicationTest extends NsTest {
         String input = "pobi,javajigi";
         Assertions.assertThrows(IllegalArgumentException.class, () -> Application.makeCars(input));
     }
+
+    @Test
+    @DisplayName("이동거리_세팅_테스트")
+    void 이동거리_세팅_테스트() {
+        int maxMoveCount = 5;
+        String input = "pobi,javaj,woni";
+        Cars cars = Application.makeCars(input);
+        cars.setMaxMoveCount(maxMoveCount);
+
+        for (Car car : cars.getCars()) {
+            Assertions.assertEquals(car.getMaxMoveCount(), 5);
+        }
+    }
 }

@@ -10,6 +10,10 @@ public class Cars {
         this.cars = cars;
     }
 
+    public List<Car> getCars() {
+        return this.cars;
+    }
+
     public int getSize() {
         return this.cars.size();
     }
@@ -19,6 +23,12 @@ public class Cars {
             if (car.getName().length() > 5) {
                 throw new IllegalArgumentException();
             }
+        }
+    }
+
+    public void setMaxMoveCount(int maxMoveCount) {
+        for (Car car : this.cars) {
+            car.setMaxMoveCount(maxMoveCount);
         }
     }
 }

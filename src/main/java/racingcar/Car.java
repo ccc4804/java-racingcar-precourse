@@ -37,6 +37,10 @@ public class Car {
         this.setStatus(CarStatus.STOP);
     }
 
+    public int getMaxMoveCount() {
+        return this.maxMoveCount;
+    }
+
     private void setStatus(CarStatus status) {
         this.status = status;
         this.moveCount = this.moveCount + status.getMoveCount();
