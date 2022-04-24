@@ -69,9 +69,16 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("입력_받은_값으로_차_생성")
     void 입력_받은_값으로_차_생성() {
-        String input = "pobi,javajigi,woni";
+        String input = "pobi,javaj,woni";
 
         Cars cars = Application.makeCars(input);
         Assertions.assertEquals(cars.getSize(), 3);
+    }
+
+    @Test
+    @DisplayName("사용자_이름_검증")
+    void 사용자_이름_검증() {
+        String input = "pobi,javajigi";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Application.makeCars(input));
     }
 }
