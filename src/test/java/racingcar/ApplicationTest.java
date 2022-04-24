@@ -45,8 +45,10 @@ class ApplicationTest extends NsTest {
     void 전진_테스트() {
         Car car = new Car("pobi");
         Assertions.assertEquals(car.getMoveCount(), 0);
+        Assertions.assertEquals(car.getStatus(), CarStatus.READY);
 
         car.go();
         Assertions.assertEquals(car.getMoveCount(), 1);
+        Assertions.assertEquals(car.getStatus(), CarStatus.GO);
     }
 }
