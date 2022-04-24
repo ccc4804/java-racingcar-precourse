@@ -70,4 +70,13 @@ public class Car {
     public boolean validateArrive() {
         return this.maxMoveCount <= this.moveCount;
     }
+
+    public String printMoveCount() {
+        StringBuilder stringBuilder = new StringBuilder(this.name + " : ");
+        for (int i = 0; i < this.moveCount; i++) {
+            stringBuilder.append("-");
+        }
+
+        return stringBuilder.toString();
+    }
 }

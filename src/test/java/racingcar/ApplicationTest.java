@@ -126,4 +126,16 @@ class ApplicationTest extends NsTest {
 
         Assertions.assertTrue(car.validateArrive());
     }
+
+    @Test
+    @DisplayName("자동차_움직인_거리_출력_테스트")
+    void 자동차_움직인_거리_출력_테스트() {
+
+        Car car = new Car("pobi");
+        car.go();
+        car.go();
+        car.go();
+
+        Assertions.assertEquals("pobi : ---", car.printMoveCount());
+    }
 }
