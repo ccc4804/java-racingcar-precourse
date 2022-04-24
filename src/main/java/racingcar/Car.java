@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private final String name;
     private int moveCount;
@@ -10,7 +12,6 @@ public class Car {
         this.name = name;
         this.moveCount = 0;
         this.status = CarStatus.READY;
-
     }
 
     public String getName() {
@@ -44,5 +45,25 @@ public class Car {
     private void setStatus(CarStatus status) {
         this.status = status;
         this.moveCount = this.moveCount + status.getMoveCount();
+    }
+
+    public CarStatus move() {
+        CarStatus carStatus = null;
+        int randomNumber = this.makeRandomNumber();
+        
+        if (randomNumber > 3) {
+            carStatus = CarStatus.GO;
+        }
+
+        if (randomNumber <= 3) {
+            carStatus = CarStatus.STOP;
+        }
+
+        this.setStatus(carStatus);
+        return this.status;
+    }
+
+    private int makeRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }

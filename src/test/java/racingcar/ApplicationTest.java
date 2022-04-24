@@ -101,4 +101,15 @@ class ApplicationTest extends NsTest {
         String input = "pobi,javaj,pobi";
         Assertions.assertThrows(IllegalArgumentException.class, () -> Application.makeCars(input));
     }
+
+    @Test
+    @DisplayName("랜덤값_생성_후_자동차_움직이기")
+    void 랜덤값_생성_후_자동차_움직이기() {
+        Car car = new Car("pobi");
+        Assertions.assertEquals(car.getStatus(), CarStatus.READY);
+        Assertions.assertEquals(car.getMoveCount(), 0);
+
+        car.move();
+        Assertions.assertNotEquals(car.getStatus(), CarStatus.READY);
+    }
 }

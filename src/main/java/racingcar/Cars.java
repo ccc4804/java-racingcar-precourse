@@ -52,4 +52,10 @@ public class Cars {
             car.setMaxMoveCount(maxMoveCount);
         }
     }
+
+    public void move() {
+        for (Car car : this.cars) {
+            car.move();
+        }
+    }
 }
