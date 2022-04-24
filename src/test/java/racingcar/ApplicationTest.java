@@ -112,4 +112,18 @@ class ApplicationTest extends NsTest {
         car.move();
         Assertions.assertNotEquals(car.getStatus(), CarStatus.READY);
     }
+
+    @Test
+    @DisplayName("도착_자동차_확인하기")
+    void 도착_자동차_확인하기() {
+        Car car = new Car("pobi");
+        car.setMaxMoveCount(5);
+        car.go();
+        car.go();
+        car.go();
+        car.go();
+        car.go();
+
+        Assertions.assertTrue(car.validateArrive());
+    }
 }

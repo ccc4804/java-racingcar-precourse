@@ -50,7 +50,7 @@ public class Car {
     public CarStatus move() {
         CarStatus carStatus = null;
         int randomNumber = this.makeRandomNumber();
-        
+
         if (randomNumber > 3) {
             carStatus = CarStatus.GO;
         }
@@ -65,5 +65,9 @@ public class Car {
 
     private int makeRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public boolean validateArrive() {
+        return this.maxMoveCount <= this.moveCount;
     }
 }

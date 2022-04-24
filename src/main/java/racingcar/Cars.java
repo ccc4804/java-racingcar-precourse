@@ -58,4 +58,14 @@ public class Cars {
             car.move();
         }
     }
+
+    public boolean validateArriveCar() {
+        for (Car car : this.cars) {
+            if (car.validateArrive()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
