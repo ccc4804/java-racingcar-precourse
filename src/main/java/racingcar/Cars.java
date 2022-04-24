@@ -59,13 +59,24 @@ public class Cars {
         }
     }
 
-    public boolean validateArriveCar() {
+    public boolean checkArriveCar() {
         for (Car car : this.cars) {
-            if (car.validateArrive()) {
+            if (car.checkStatusFinished()) {
                 return true;
             }
         }
 
         return false;
+    }
+
+    public String printArriveCarName() {
+        List<String> arriveCarNames = new ArrayList<>();
+        for (Car car : this.cars) {
+            if (CarStatus.FINISHED == car.getStatus()) {
+                arriveCarNames.add(car.getName());
+            }
+        }
+
+        return "최종 우승자: " + Util.joinComma(arriveCarNames);
     }
 }

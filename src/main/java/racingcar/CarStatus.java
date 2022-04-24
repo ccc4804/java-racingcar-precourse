@@ -3,7 +3,8 @@ package racingcar;
 public enum CarStatus {
     READY("READY", "대기", 0),
     GO("GO", "전진", 1),
-    STOP("STOP", "멈춤", 0);
+    STOP("STOP", "멈춤", 0),
+    FINISHED("FINISHED", "도착", 0);
 
     private String code;
     private String label;

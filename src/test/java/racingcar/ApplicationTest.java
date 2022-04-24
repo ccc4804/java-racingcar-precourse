@@ -126,7 +126,7 @@ class ApplicationTest extends NsTest {
         car.go();
         car.go();
 
-        Assertions.assertTrue(car.validateArrive());
+        Assertions.assertTrue(car.checkStatusFinished());
     }
 
     @Test
@@ -158,6 +158,27 @@ class ApplicationTest extends NsTest {
         carList.add(car2);
 
         Cars cars = new Cars(carList);
-        Assertions.assertTrue(cars.validateArriveCar());
+        Assertions.assertTrue(cars.checkArriveCar());
+    }
+
+    @Test
+    @DisplayName("최종_우승자_출력_테스트")
+    void 최종_우승자_출력_테스트() {
+        Car car1 = new Car("pobi");
+        car1.setMaxMoveCount(2);
+        car1.go();
+        car1.go();
+
+        Car car2 = new Car("javag");
+        car2.setMaxMoveCount(2);
+        car2.go();
+        car2.go();
+
+        List<Car> carList = new ArrayList<>();
+        carList.add(car1);
+        carList.add(car2);
+
+        Cars cars = new Cars(carList);
+        Assertions.assertEquals(cars.printArriveCarName(), "최종 우승자: pobi,javag");
     }
 }

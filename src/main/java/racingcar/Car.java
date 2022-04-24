@@ -45,9 +45,13 @@ public class Car {
     private void setStatus(CarStatus status) {
         this.status = status;
         this.moveCount = this.moveCount + status.getMoveCount();
+
+        if (this.moveCount >= this.maxMoveCount) {
+            this.status = CarStatus.FINISHED;
+        }
     }
 
-    public CarStatus move() {
+    public void move() {
         CarStatus carStatus = null;
         int randomNumber = this.makeRandomNumber();
 
@@ -60,15 +64,14 @@ public class Car {
         }
 
         this.setStatus(carStatus);
-        return this.status;
     }
 
     private int makeRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public boolean validateArrive() {
-        return this.maxMoveCount <= this.moveCount;
+    public boolean checkStatusFinished() {
+        return CarStatus.FINISHED == this.status;
     }
 
     public String printMoveCount() {
