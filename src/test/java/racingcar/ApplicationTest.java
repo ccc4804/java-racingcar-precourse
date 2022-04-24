@@ -5,6 +5,8 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -137,5 +139,25 @@ class ApplicationTest extends NsTest {
         car.go();
 
         Assertions.assertEquals("pobi : ---", car.printMoveCount());
+    }
+
+    @Test
+    @DisplayName("자동차_우승자_확인_테스트")
+    void 자동차_우승자_확인_테스트() {
+        Car car1 = new Car("pobi");
+        car1.setMaxMoveCount(2);
+        car1.go();
+        car1.go();
+
+        Car car2 = new Car("javag");
+        car2.setMaxMoveCount(2);
+        car2.go();
+
+        List<Car> carList = new ArrayList<>();
+        carList.add(car1);
+        carList.add(car2);
+
+        Cars cars = new Cars(carList);
+        Assertions.assertTrue(cars.validateArriveCar());
     }
 }
