@@ -79,4 +79,10 @@ public class Cars {
 
         return "최종 우승자: " + Util.joinComma(arriveCarNames);
     }
+
+    public void printCurrentMoveCount() {
+        for (Car car : this.cars) {
+            System.out.println(car.printMoveCount());
+        }
+    }
 }
